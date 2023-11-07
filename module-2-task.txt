@@ -1,11 +1,11 @@
-PREFIX dbo: <http://dbpedia.org/ontology/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-
-SELECT ?region ?area
-WHERE {
-  ?region a dbo:AdministrativeRegion ;
-          dbo:country <http://dbpedia.org/resource/Ukraine> ;
-          dbo:area ?area .
+SELECT
+  ?oblast ?oblastLabel
+  ?area
+WHERE
+{
+  ?oblast wdt:P31 wd:Q3348196 .
+  ?oblast wdt:P2046 ?area.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "uk" }
 }
 ORDER BY DESC(?area)
 LIMIT 1
