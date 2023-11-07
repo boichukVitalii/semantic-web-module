@@ -1,0 +1,11 @@
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?region ?area
+WHERE {
+  ?region a dbo:AdministrativeRegion ;
+          dbo:country <http://dbpedia.org/resource/Ukraine> ;
+          dbo:area ?area .
+}
+ORDER BY DESC(?area)
+LIMIT 1
